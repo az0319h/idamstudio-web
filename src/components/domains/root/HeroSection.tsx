@@ -47,7 +47,7 @@ export default function HeroSection() {
                   delay: 0.1,
                }}
                //    className={`${cormorant.className} lg:text-auto lg:text-auto text-5xl leading-14 font-bold sm:text-6xl sm:leading-17.5 md:text-[9.5vw] md:leading-[110%] md:font-semibold`}
-               className={`${cormorant.className} text-[9.5vw] leading-[120%] font-semibold md:leading-[110%] md:font-medium`}
+               className={`${cormorant.className} text-[10vw] leading-[120%] font-bold md:text-[9.5vw] md:leading-[110%] md:font-medium`}
             >
                공감을&nbsp;
                <br className="md:hidden" />
