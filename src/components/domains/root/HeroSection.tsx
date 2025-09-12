@@ -4,6 +4,7 @@ import Header from "@/components/common/Header";
 import { Cormorant_Garamond, Spectral } from "next/font/google";
 import Lottie from "lottie-react";
 import scroll from "@/components/animations/scroll.json";
+import { motion } from "framer-motion";
 
 const cormorant = Cormorant_Garamond({
    subsets: ["latin"],
@@ -34,37 +35,90 @@ export default function HeroSection() {
 
          {/* 헤더 + 콘텐츠 */}
          <Header />
+
          <div className="absolute top-18 w-full px-4 md:top-25 lg:px-5">
-            <h2
-               className={`${cormorant.className} lg:text-auto lg:text-auto text-5xl leading-14 font-semibold sm:text-6xl sm:leading-16 md:text-[10vw] md:leading-[110%]`}
+            {/* h2 태그 - 먼저 나타남 */}
+            <motion.h2
+               initial={{ opacity: 0, y: 50 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: 0.1,
+               }}
+               //    className={`${cormorant.className} lg:text-auto lg:text-auto text-5xl leading-14 font-bold sm:text-6xl sm:leading-17.5 md:text-[9.5vw] md:leading-[110%] md:font-semibold`}
+               className={`${cormorant.className} text-[9.5vw] leading-[120%] font-semibold md:leading-[110%] md:font-medium`}
             >
                공감을&nbsp;
                <br className="md:hidden" />
                불러 일으키는
                <br />
-               건축물을 만들다
-            </h2>
+               건축물을 완성하다
+            </motion.h2>
          </div>
-         <div className="absolute bottom-15 px-4 sm:bottom-5 sm:left-1/2 sm:-translate-x-1/2 sm:px-0 md:bottom-10 md:left-4/10 md:-translate-x-4/10 lg:px-5">
-            <p className="text-16-medium md:text-18-medium w-fit text-nowrap md:leading-7">
-               사람과 공간을 이어주는 섬세한 설계,&nbsp;
-               <br className="md:hidden" />
-               지속 가능한 가치를 세우는 건축 철학,
-               <br />
-               시대를 담고 미래를 준비하는 이담 건축.
-            </p>
-         </div>
-         <div className="text-14-regular md:text-16-regular absolute bottom-5 px-4 md:bottom-10 lg:px-5">
-            <em className={`${spectral.className}`}>since 2005</em>
-         </div>
-         <div className="absolute right-0 bottom-3.5 md:bottom-6">
-            <Lottie
-               animationData={scroll}
-               loop={true} // 반복 재생
-               autoplay={true} // 자동 재생
-               className="flex h-10 w-10 md:h-16 md:w-16"
-            />
-         </div>
+
+         {/* 나머지 요소들 - h2 이후에 함께 나타남 */}
+         <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+               duration: 0.5,
+               delay: 0.1, // h2 애니메이션 완료 후 나타남
+            }}
+         >
+            {/* 설명 텍스트 */}
+            <div className="absolute bottom-15 px-4 sm:bottom-5 sm:left-1/2 sm:-translate-x-1/2 sm:px-0 md:bottom-10 md:left-4/10 md:-translate-x-4/10 lg:px-5">
+               <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                     duration: 0.5,
+                     delay: 0.3,
+                  }}
+                  className="text-16-medium md:text-18-medium w-fit text-nowrap md:leading-7"
+               >
+                  • 지속 가능한 가치를 세우는 건축 철학,&nbsp;
+                  <br className="md:hidden" />
+                  사람과 공간을 이어주는 섬세한 디자인,
+                  <br />
+                  시대를 담고 미래를 준비하는 이담 건축.
+               </motion.p>
+            </div>
+
+            {/* Since 2005 */}
+            <div className="text-14-regular md:text-16-regular absolute bottom-5 px-4 md:bottom-10 lg:px-5">
+               <motion.em
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                     duration: 0.5,
+                     delay: 0.3, // h2 애니메이션 완료 후 나타남
+                  }}
+                  className={`${spectral.className}`}
+               >
+                  since 2005
+               </motion.em>
+            </div>
+
+            {/* 스크롤 애니메이션 */}
+            <div className="absolute right-0 bottom-3.5 md:bottom-6">
+               <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                     duration: 0.5,
+                     delay: 0.3, // h2 애니메이션 완료 후 나타남
+                  }}
+               >
+                  <Lottie
+                     animationData={scroll}
+                     loop={true}
+                     autoplay={true}
+                     className="flex h-10 w-10 md:h-16 md:w-16"
+                  />
+               </motion.div>
+            </div>
+         </motion.div>
       </div>
    );
 }
