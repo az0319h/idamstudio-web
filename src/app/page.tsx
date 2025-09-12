@@ -1,10 +1,10 @@
-export default function Home() {
+import HeroSection from "@/components/domains/root/HeroSection";
+
+export default function HomePage() {
    return (
-      <div>
-         <div>
-            <p>이담 건축에 오신 여러분들을 환영합니다.</p>
-            <span>.prettierrc 적용 완료</span>
-         </div>
+      <div className="text-white">
+         <HeroSection />
+         <h1>안녕하세요</h1>
       </div>
    );
 }
