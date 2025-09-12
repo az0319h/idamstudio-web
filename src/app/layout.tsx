@@ -1,35 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Spectral } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const poppins = Poppins({
+   subsets: ["latin"],
+   weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const spectral = Spectral({
+   subsets: ["latin"],
+   weight: ["300", "400", "500", "600", "700"],
+   variable: "--font-spectral",
 });
 
 export const metadata: Metadata = {
-  title: "이담 건축 - 공간을 짓고 가치를 남깁니다",
-  description:
-    "이담 건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
+   title: "이담 건축 - 공간을 짓고 가치를 남깁니다",
+   description:
+      "이담 건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
+   icons: {
+      icon: "/favicon.ico",
+   },
 };
 
 export default function RootLayout({
-  children,
+   children,
 }: Readonly<{
-  children: React.ReactNode;
+   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ko">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+   return (
+      <html lang="ko">
+         <body className={`${poppins.className} min-h-screen w-full`}>
+            <main>{children}</main>
+         </body>
+      </html>
+   );
 }
