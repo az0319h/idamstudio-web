@@ -36,7 +36,7 @@ export default function HeroSection() {
          <Header />
          <div className="absolute top-18 w-full px-4 md:top-25 lg:px-5">
             <h2
-               className={`${cormorant.className} lg:text-auto lg:text-auto text-5xl leading-14 font-medium sm:text-6xl sm:leading-16 md:text-[10vw] md:leading-[110%]`}
+               className={`${cormorant.className} lg:text-auto lg:text-auto text-5xl leading-14 font-semibold sm:text-6xl sm:leading-16 md:text-[10vw] md:leading-[110%]`}
             >
                공감을&nbsp;
                <br className="md:hidden" />
@@ -54,8 +54,8 @@ export default function HeroSection() {
                시대를 담고 미래를 준비하는 이담 건축.
             </p>
          </div>
-         <div className="md:text-18-regular absolute bottom-5 px-4 md:bottom-10 lg:px-5">
-            <em className={`${cormorant.className}`}>since 2005</em>
+         <div className="text-14-regular md:text-16-regular absolute bottom-5 px-4 md:bottom-10 lg:px-5">
+            <em className={`${spectral.className}`}>since 2005</em>
          </div>
          <div className="absolute right-0 bottom-3.5 md:bottom-6">
             <Lottie
