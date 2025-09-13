@@ -19,7 +19,7 @@ const spectral = Spectral({
 
 export default function HeroSection() {
    return (
-      <div className="relative h-screen w-full">
+      <div className="relative h-screen w-full text-white">
          {/* 배경 이미지 */}
          <Image
             src="https://res.cloudinary.com/dmtmnadim/image/upload/v1757662134/heroImg_csqqoz.jpg"
