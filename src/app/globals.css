@@ -12,11 +12,13 @@
 
    /* === Background === */
    --color-bg-100: #f0ede9; /* Main Color */
+   --color-bg-200: #efefef; /* 404 Color */
 
    /* === Primary === */
 
    /* === line === */
    --color-line-white-15: #ffffff26;
+   --color-line-black-10: #0000001a;
 
    /* === Hover === */
    --color-hover-100: #222222;

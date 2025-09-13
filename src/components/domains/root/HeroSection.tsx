@@ -5,6 +5,7 @@ import { Cormorant_Garamond, Spectral } from "next/font/google";
 import Lottie from "lottie-react";
 import scroll from "@/components/animations/scroll.json";
 import { motion } from "framer-motion";
+import { HERO_IMAGES } from "@/constants";
 
 const cormorant = Cormorant_Garamond({
    subsets: ["latin"],
@@ -18,11 +19,13 @@ const spectral = Spectral({
 });
 
 export default function HeroSection() {
+   const todayIndex = new Date().getDate() % HERO_IMAGES.length;
+   const randomImage = HERO_IMAGES[todayIndex];
    return (
       <div className="relative h-screen w-full text-white">
          {/* 배경 이미지 */}
          <Image
-            src="https://res.cloudinary.com/dmtmnadim/image/upload/v1757662134/heroImg_csqqoz.jpg"
+            src={randomImage}
             alt="Hero Background"
             fill
             priority
