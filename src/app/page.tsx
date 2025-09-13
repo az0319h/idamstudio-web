@@ -1,10 +1,11 @@
+import AboutSection from "@/components/domains/root/AboutSection";
 import HeroSection from "@/components/domains/root/HeroSection";
 
 export default function HomePage() {
    return (
-      <div className="text-white">
+      <div>
          <HeroSection />
-         <h1>안녕하세요</h1>
+         <AboutSection />
       </div>
    );
 }

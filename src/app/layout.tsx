@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Spectral } from "next/font/google";
+import { Black_Han_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -7,10 +7,10 @@ const poppins = Poppins({
    weight: ["300", "400", "500", "600", "700"],
 });
 
-const spectral = Spectral({
+const blackHanSans = Black_Han_Sans({
+   weight: "400", // 이 폰트는 weight 400 하나만 지원
    subsets: ["latin"],
-   weight: ["300", "400", "500", "600", "700"],
-   variable: "--font-spectral",
+   variable: "--font-black-han-sans",
 });
 
 export const metadata: Metadata = {
