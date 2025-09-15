@@ -30,8 +30,10 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="ko">
-         <body className={`${poppins.className} min-h-screen w-full`}>
-            <main>{children}</main>
+         <body
+            className={`${poppins.className} flex min-h-screen w-full flex-col`}
+         >
+            <main className="flex-1">{children}</main>
             <Footer />
          </body>
       </html>

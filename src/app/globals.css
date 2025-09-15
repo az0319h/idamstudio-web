@@ -367,6 +367,20 @@
    }
 }
 
+/* skeleton-pulse */
+@keyframes subtle-pulse {
+   0%,
+   100% {
+      opacity: 0.85;
+   }
+   50% {
+      opacity: 1;
+   }
+}
+.subtle-pulse {
+   animation: subtle-pulse 2s ease-in-out infinite;
+}
+
 /* Default */
 html,
 body {
