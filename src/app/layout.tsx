@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Black_Han_Sans, Poppins } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/common/Footer";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       <html lang="ko">
          <body className={`${poppins.className} min-h-screen w-full`}>
             <main>{children}</main>
+            <Footer />
          </body>
       </html>
    );
