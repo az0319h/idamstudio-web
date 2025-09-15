@@ -15,7 +15,7 @@ export default function NotFoundPage() {
       return () => clearTimeout(timer);
    }, []);
    return (
-      <div className="h-screen w-screen bg-black">
+      <div className="fixed inset-0 top-0 left-0 z-50 bg-black">
          <Lottie
             animationData={notfound}
             loop

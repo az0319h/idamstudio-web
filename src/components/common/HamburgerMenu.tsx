@@ -68,7 +68,7 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
                <li className="border-line-white-15 border-b">소셜 링크</li>
                <li className="border-line-white-15 border-b">
                   <a
-                     href="https://www.instagram.com/h__sunghoon/"
+                     href="https://www.instagram.com/ida.mstudio/"
                      target="_blank"
                      rel="noopener noreferrer"
                   >

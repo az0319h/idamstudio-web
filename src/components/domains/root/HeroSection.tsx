@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import scroll from "@/components/animations/scroll.json";
 import { motion } from "framer-motion";
 import { HERO_IMAGES } from "@/constants";
+import { useEffect, useState } from "react";
 
 const cormorant = Cormorant_Garamond({
    subsets: ["latin"],
@@ -19,19 +20,26 @@ const spectral = Spectral({
 });
 
 export default function HeroSection() {
-   const todayIndex = new Date().getDate() % HERO_IMAGES.length;
-   const randomImage = HERO_IMAGES[todayIndex];
+   const [randomImage, setRandomImage] = useState<string | null>(null);
+
+   useEffect(() => {
+      const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
+      setRandomImage(HERO_IMAGES[randomIndex]);
+   }, []);
+
    return (
       <div className="relative h-screen w-full text-white">
          {/* 배경 이미지 */}
-         <Image
-            src={randomImage}
-            alt="Hero Background"
-            fill
-            priority
-            unoptimized
-            className="object-cover"
-         />
+         {randomImage && (
+            <Image
+               src={randomImage}
+               alt="Hero Background"
+               fill
+               priority
+               unoptimized
+               className="object-cover"
+            />
+         )}
 
          {/* 어두운 오버레이 */}
          <div className="absolute inset-0 bg-black/30" />
@@ -99,7 +107,7 @@ export default function HeroSection() {
                   }}
                   className={`${spectral.className}`}
                >
-                  since 2005
+                  since 2021
                </motion.em>
             </div>
 
