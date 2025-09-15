@@ -9,13 +9,13 @@ interface GetProjectResult {
 }
 
 export default async function getProjects(): Promise<GetProjectResult> {
-   await delay(3000);
+   await delay(1000);
    try {
       const endpoint = `${process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL}/projects.json`;
 
       const res = await fetch(endpoint, {
          method: "GET",
-         cache: "no-store", // 항상 최신 데이터 가져오기
+         cache: "no-store",
       });
 
       if (!res.ok) {

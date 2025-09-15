@@ -43,15 +43,14 @@ export default function Footer() {
                   <Link href={"/location"} className="link-underline">
                      오시는 길
                   </Link>
-                  <Link href={"/contact"} className="link-underline">
-                     견적 문의
-                  </Link>
                </nav>
                <ul
                   style={revealStyle(isVisible, 2)}
                   className="md:text-18-regular [&_a]:flex [&_a]:items-center [&_a]:justify-between [&_li]:py-1.5 sm:[&_li]:py-2"
                >
-                  <li className="border-line-black-10 border-b">소셜 링크</li>
+                  <li className="border-line-black-10 border-b !pt-0">
+                     소셜 링크
+                  </li>
                   <li className="border-line-black-10 hover:border-line-white-15 group border-b transition-all duration-300 hover:bg-black">
                      <a
                         href="https://www.instagram.com/ida.mstudio/"
