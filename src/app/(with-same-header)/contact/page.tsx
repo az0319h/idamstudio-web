@@ -48,7 +48,16 @@ export default function ContactPage() {
                      </a>
                   </div>
                </li>
-
+               <li className="border-line-black-10 border-t pt-2">
+                  <div>
+                     <h3>운영 시간</h3>
+                  </div>
+                  <div>
+                     <p>월–금 09:00 ~ 18:00</p>
+                     <p>토요일 09:00 ~ 13:00</p>
+                     <p>일요일 및 공휴일 휴무</p>
+                  </div>
+               </li>
                <li className="border-line-black-10 border-t pt-2">
                   <div>
                      <h3>연락처</h3>
@@ -58,14 +67,6 @@ export default function ContactPage() {
                      <p className="break-words">
                         idamstudio.doodream@gmail.com
                      </p>
-                  </div>
-               </li>
-               <li className="border-line-black-10 border-t pt-2">
-                  <div>
-                     <h3>위치</h3>
-                  </div>
-                  <div>
-                     <p>경기도 동두천시 평화로 2862번길</p>
                   </div>
                </li>
             </ul>
