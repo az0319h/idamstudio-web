@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Black_Han_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/common/Footer";
+import { NotificationProvider } from "@/context/NotificationContext";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -33,8 +34,10 @@ export default function RootLayout({
          <body
             className={`${poppins.className} flex min-h-screen w-full flex-col`}
          >
-            <main className="flex-1">{children}</main>
-            <Footer />
+            <NotificationProvider>
+               <main className="flex-1">{children}</main>
+               <Footer />
+            </NotificationProvider>
          </body>
       </html>
    );

@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
+import otherColorLogo from "@/assets/logo_black.svg";
 import Link from "next/link";
 import { Spectral } from "next/font/google";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import { toggleBodyScroll } from "@/utils";
+import { usePathname } from "next/navigation";
 
 const spectral = Spectral({
    subsets: ["latin"],
@@ -16,6 +18,7 @@ const spectral = Spectral({
 
 export default function Header() {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const pathname = usePathname();
 
    useEffect(() => {
       toggleBodyScroll(isMenuOpen); // 메뉴 열리면 스크롤 잠금
@@ -32,6 +35,12 @@ export default function Header() {
       return () => window.removeEventListener("resize", handleResize);
    }, []);
 
+   const isDarkStyle =
+      pathname === "/contact" ||
+      pathname === "/work" ||
+      pathname === "/about" ||
+      pathname === "/location";
+
    return (
       <>
          <motion.header
@@ -41,15 +50,18 @@ export default function Header() {
                duration: 0.5,
                delay: 0.3,
             }}
-            className="border-line-white-15 absolute top-0 left-0 z-30 w-full border-b"
+            className={`absolute top-0 left-0 z-30 w-full border-b ${isDarkStyle ? "border-line-black-10 bg-white" : "border-line-white-15"}`}
          >
             <div className="flex items-center justify-between">
-               <div className="border-line-white-15 border-r px-4 py-2 sm:flex sm:w-5/10 sm:items-center sm:justify-between md:py-3">
+               <div
+                  className={`border-r px-4 py-2 sm:flex sm:w-5/10 sm:items-center sm:justify-between md:py-3 ${isDarkStyle ? "border-line-black-10" : "border-line-white-15"}`}
+               >
                   <Link href={"/"}>
                      <Image
-                        src={logo}
+                        src={isDarkStyle ? otherColorLogo : logo}
                         alt="logo"
                         width={60}
+                        height={0}
                         className="md:w-17 lg:w-18.5"
                      />
                   </Link>

@@ -105,11 +105,11 @@ export default function Footer() {
                   style={revealStyle(isVisible, 3)}
                   className="border-line-black-10 border-t"
                ></div>
-               <div className="text-14-regular sm:text-16-regular md:text-18-regular flex flex-wrap items-center justify-between gap-4">
+               <div className="text-14-regular sm:text-16-regular lg:text-18-regular relative flex flex-wrap items-center justify-between gap-4">
                   <em className={`${spectral.className} order-2 md:order-1`}>
                      Architecture Studio
                   </em>
-                  <p className="order-1 sm:order-3 md:order-2">
+                  <p className="order-1 sm:order-3 md:absolute md:left-1/2 md:-translate-x-1/2">
                      ©2025 idam architecture. all rights reserved.
                   </p>
                   <p className="order-3 sm:order-2 md:order-3">

@@ -18,7 +18,7 @@ export default function ProjectCard({ ...props }) {
    return (
       <div ref={sectionRef}>
          <Link
-            href={`/project/${id}`}
+            href={`/work/${id}`}
             style={revealStyle(isVisible, 0)}
             className="group flex flex-col gap-2"
          >
