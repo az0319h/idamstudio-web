@@ -15,7 +15,7 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
             duration: 0.4,
             ease: "easeOut",
          }}
-         className="fixed inset-0 z-50 flex min-h-screen w-full flex-col bg-black"
+         className="fixed inset-0 z-50 flex min-h-screen w-full flex-col bg-black text-white"
       >
          {/* Close 버튼 */}
          <motion.div
@@ -46,10 +46,18 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
             }}
             className="flex flex-col gap-4 p-4 text-5xl font-medium sm:gap-5 sm:text-6xl [&_a]:w-fit"
          >
-            <Link href={"/work"}>건축 갤러리</Link>
-            <Link href={"/about"}>철학과 이야기</Link>
-            <Link href={"/location"}>오시는 길</Link>
-            <Link href={"/contact"}>견적 문의</Link>
+            <Link href="/work" onClick={onClose}>
+               건축 갤러리
+            </Link>
+            <Link href="/about" onClick={onClose}>
+               철학과 이야기
+            </Link>
+            <Link href="/location" onClick={onClose}>
+               오시는 길
+            </Link>
+            <Link href="/contact" onClick={onClose}>
+               견적 문의
+            </Link>
          </motion.nav>
 
          {/* 하단 소셜 링크 영역 */}
