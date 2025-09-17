@@ -1,4 +1,3 @@
-// hooks/useIntersection.ts
 import { useEffect, useRef, useState } from "react";
 
 export function useIntersection(
@@ -11,16 +10,25 @@ export function useIntersection(
    const ref = useRef<HTMLDivElement>(null);
 
    useEffect(() => {
+      const node = ref.current;
+      if (!node) return;
+
       const observer = new IntersectionObserver(([entry]) => {
          if (entry.isIntersecting) {
             setIsVisible(true);
+            observer.unobserve(entry.target); // 한 번 보이면 더는 감시 안 함
          }
       }, options);
 
-      if (ref.current) observer.observe(ref.current);
+      observer.observe(node);
+
+      // 새로고침 시, 이미 화면에 있으면 바로 true 처리
+      if (node.getBoundingClientRect().top < window.innerHeight) {
+         setIsVisible(true);
+      }
 
       return () => {
-         if (ref.current) observer.unobserve(ref.current);
+         if (node) observer.unobserve(node);
       };
    }, [options]);
 

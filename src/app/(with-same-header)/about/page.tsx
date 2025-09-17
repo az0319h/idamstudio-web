@@ -1,6 +1,5 @@
 import PageTitle from "@/components/common/PageTitle";
 import PageLayout from "@/components/layout/PageLayout";
-import Link from "next/link";
 
 export default function AboutPage() {
    return (

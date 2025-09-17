@@ -37,7 +37,7 @@ export default function Header() {
 
    const isDarkStyle =
       pathname === "/contact" ||
-      pathname === "/work" ||
+      pathname.startsWith("/work") ||
       pathname === "/about" ||
       pathname === "/location";
 
