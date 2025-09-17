@@ -2,6 +2,7 @@
 
 import { database } from "@/lib/firebase/firebase";
 import { ref, push, set } from "firebase/database";
+import { revalidatePath } from "next/cache";
 
 interface CreateProjectResult {
    success: boolean;
@@ -79,6 +80,10 @@ export default async function createProject(
 
       // Firebase에 데이터 저장
       await set(newProjectRef, projectData);
+
+      // 캐시 무효화
+      revalidatePath("/work"); // /work 페이지 전체 다시 fetch
+      revalidatePath("/"); // 홈에서 ProjectsList 쓰면 같이 리프레시 가능
 
       return {
          success: true,

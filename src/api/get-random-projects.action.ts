@@ -2,10 +2,7 @@
 
 import { Project } from "@/lib/types";
 import getProjects from "./get-projects.action";
-import { delay } from "@/utils";
-
 export async function getRandomProjects(excludeId: string): Promise<Project[]> {
-   await delay(1000);
    const result = await getProjects();
 
    if (!result.success || !result.data) return [];
