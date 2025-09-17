@@ -1,7 +1,6 @@
 "use server";
 
 import { Project } from "@/lib/types";
-import { delay } from "@/utils";
 
 interface GetProjectResult {
    success: boolean;
@@ -9,13 +8,12 @@ interface GetProjectResult {
 }
 
 export default async function getProjects(): Promise<GetProjectResult> {
-   await delay(1000);
    try {
       const endpoint = `${process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL}/projects.json`;
 
       const res = await fetch(endpoint, {
          method: "GET",
-         cache: "no-store",
+         next: { revalidate: 600 }, // 10분에 한 번씩 fetch
       });
 
       if (!res.ok) {
@@ -25,9 +23,13 @@ export default async function getProjects(): Promise<GetProjectResult> {
       const data = await res.json();
 
       // Firebase 객체 → Project[] 변환
-      const projects: Project[] = data
-         ? (Object.values(data) as Project[])
-         : [];
+      let projects: Project[] = data ? (Object.values(data) as Project[]) : [];
+
+      projects = projects.sort((a, b) => {
+         if (a.year === null) return 1;
+         if (b.year === null) return -1;
+         return b.year - a.year; // 내림차순 (최신순)
+      });
 
       return {
          success: true,

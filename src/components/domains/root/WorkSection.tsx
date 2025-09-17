@@ -6,7 +6,7 @@ export default function WorkSection() {
    return (
       <DefaultLayout>
          <WorkHeaderSection />
-         <WorkBodySection />
+         <WorkBodySection limit={6} />
       </DefaultLayout>
    );
 }
