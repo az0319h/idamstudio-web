@@ -63,7 +63,9 @@ export default function ContactPage() {
                      <h3>연락처</h3>
                   </div>
                   <div>
-                     <p>010-7123-0261</p>
+                     <p>
+                        <em>010 7123 0261</em>
+                     </p>
                      <p className="break-words">
                         idamstudio.doodream@gmail.com
                      </p>
