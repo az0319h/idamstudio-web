@@ -8,7 +8,7 @@ export default function VisualCard({ visualImage }: { visualImage: string }) {
    const { ref, isVisible } = useScaleIntersection();
 
    return (
-      <div ref={ref} className="overflow-hidden">
+<div ref={ref} className="overflow-hidden">
          <motion.div
             animate={{ scale: isVisible ? 1.05 : 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
