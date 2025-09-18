@@ -5,6 +5,8 @@ import { revealStyle } from "@/utils";
 import { motion, useMotionValue, animate } from "framer-motion";
 import { useEffect, useState } from "react";
 
+// 이거 숫자 증거하는 거 제거하기
+
 function Counter({ target, start }: { target: number; start: boolean }) {
    const count = useMotionValue(0);
    const [display, setDisplay] = useState(0);
