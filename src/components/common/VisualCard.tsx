@@ -8,7 +8,7 @@ export default function VisualCard({ visualImage }: { visualImage: string }) {
    const { ref, isVisible } = useScaleIntersection();
 
    return (
-      <div ref={ref} className="mb-4 overflow-hidden">
+      <div ref={ref} className="relative mb-4 overflow-hidden">
          <motion.div
             animate={{ scale: isVisible ? 1.05 : 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -22,6 +22,9 @@ export default function VisualCard({ visualImage }: { visualImage: string }) {
                className="h-auto w-full"
             />
          </motion.div>
+
+         {/* 블랙 오버레이 */}
+         <div className="pointer-events-none absolute inset-0 bg-black/30" />
       </div>
    );
 }
