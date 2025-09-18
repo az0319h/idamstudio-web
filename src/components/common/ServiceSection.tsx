@@ -22,10 +22,14 @@ interface ServiceItem {
 
 export default function ServiceSection() {
    const { ref: sectionRef, isVisible } = useIntersection();
-   const [openItem, setOpenItem] = useState<string | null>("01");
+   const [openItems, setOpenItems] = useState<string[]>(["01"]);
 
    const toggleItem = (id: string) => {
-      setOpenItem(openItem === id ? null : id);
+      if (openItems.includes(id)) {
+         setOpenItems(openItems.filter((item) => item !== id));
+      } else {
+         setOpenItems([...openItems, id]);
+      }
    };
 
    return (
@@ -62,7 +66,7 @@ export default function ServiceSection() {
                            <span className="text-24-medium sm:text-32-medium lg:text-5xl lg:font-medium">
                               {service.title}
                            </span>
-                           {openItem === service.id ? (
+                           {openItems.includes(service.id) ? (
                               <FiMinus className="size-6 sm:size-8 lg:size-10" />
                            ) : (
                               <FiPlus className="size-6 sm:size-8 lg:size-10" />
@@ -72,7 +76,7 @@ export default function ServiceSection() {
 
                      {/* 애니메이션 적용 부분 */}
                      <AnimatePresence initial={false}>
-                        {openItem === service.id && (
+                        {openItems.includes(service.id) && (
                            <motion.div
                               key="content"
                               initial={{ height: 0, opacity: 0 }}
@@ -104,7 +108,7 @@ export default function ServiceSection() {
                               </div>
                               <div className="grid grid-cols-1 gap-8 py-8 md:grid-cols-2 lg:py-16">
                                  <div className="flex flex-col gap-3">
-                                    <h5 className="text-14-medium md:text-16-medium lg:text-18-medium">
+                                    <h5 className="text-16-medium md:text-18-medium lg:text-20-medium">
                                        {service.subTitle}
                                     </h5>
                                     <hr className="border-line-black-10" />
