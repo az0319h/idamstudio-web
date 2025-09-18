@@ -15,7 +15,7 @@ export async function getProjectById(
 
       const res = await fetch(endpoint, {
          method: "GET",
-         cache: "no-store",
+         next: { revalidate: 600 }, // 10분에 한 번씩 fetch
       });
 
       if (!res.ok) {
