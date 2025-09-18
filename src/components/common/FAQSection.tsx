@@ -12,7 +12,7 @@ interface FAQItem {
 }
 
 export default function FAQSection() {
-   const { ref: sectionRef, isVisible } = useIntersection();
+   const { ref: sectionRef, isVisible } = useIntersection({ threshold: 0.1 });
 
    return (
       <div
