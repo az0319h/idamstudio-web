@@ -47,7 +47,7 @@ export default function ServiceSection() {
             {services.map((service: ServiceItem, index) => (
                <div
                   key={service.id}
-                  style={revealStyle(isVisible, index)}
+                  style={revealStyle(isVisible, index + 1)}
                   className={`break-keep ${
                      index !== services.length - 1
                         ? "border-line-black-10 border-b"
