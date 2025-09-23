@@ -11,7 +11,7 @@ export default function AboutLocation() {
       <div ref={sectionRef}>
          <div
             style={revealStyle(isVisible, 1)}
-            className="mx-4 mt-10 flex flex-col gap-10 bg-black p-4 break-keep text-white md:gap-20 md:py-5 lg:gap-30"
+            className="mx-4 mt-10 flex flex-col gap-10 bg-black p-4 break-keep text-white md:gap-20 md:py-5 lg:gap-30 lg:py-10"
          >
             <div className="flex flex-col gap-5 md:w-6/10 md:gap-8">
                <h3 className="text-24-medium sm:text-26-medium md:text-4xl md:font-medium lg:text-5xl">
