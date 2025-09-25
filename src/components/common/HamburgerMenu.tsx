@@ -96,7 +96,7 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
                </li>
                <li>
                   <a
-                     href="https://www.youtube.com/"
+                     href="https://www.youtube.com/@%EC%9D%B4%EB%8B%B4%EA%B1%B4%EC%B6%95"
                      target="_blank"
                      rel="noopener noreferrer"
                   >
