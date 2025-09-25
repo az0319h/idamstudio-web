@@ -3,6 +3,7 @@ import { Black_Han_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/common/Footer";
 import { NotificationProvider } from "@/context/NotificationContext";
+import ChatBot from "@/components/common/ChatBot";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
             <NotificationProvider>
                <main className="flex-1">{children}</main>
                <Footer />
+               <ChatBot />
             </NotificationProvider>
          </body>
       </html>
