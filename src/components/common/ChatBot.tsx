@@ -41,6 +41,27 @@ export default function ChatBot() {
       }
    }, [isVisible]);
 
+   useEffect(() => {
+      if (typeof window === "undefined") return;
+
+      const handleScrollLock = () => {
+         const isMobile = window.innerWidth < 768;
+         if (isOpen && isMobile) {
+            document.body.classList.add("overflow-hidden");
+         } else {
+            document.body.classList.remove("overflow-hidden");
+         }
+      };
+
+      handleScrollLock(); // 초기 실행
+      window.addEventListener("resize", handleScrollLock);
+
+      return () => {
+         document.body.classList.remove("overflow-hidden");
+         window.removeEventListener("resize", handleScrollLock);
+      };
+   }, [isOpen]);
+
    useClickOutside(chatRef, (event: MouseEvent) => {
       if (buttonRef.current?.contains(event.target as Node)) return;
       setIsOpen(false);
