@@ -86,21 +86,21 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
                </li>
                <li className="border-line-white-15 border-b">
                   <a
-                     href="https://www.youtube.com/"
+                     href="https://open.kakao.com/o/sWS3f0Th"
                      target="_blank"
                      rel="noopener noreferrer"
                   >
-                     유튜브
+                     카카오톡
                      <GoArrowUpRight size={22} />
                   </a>
                </li>
                <li>
                   <a
-                     href="https://github.com/az0319h/idamstudio-web"
+                     href="https://www.youtube.com/@%EC%9D%B4%EB%8B%B4%EA%B1%B4%EC%B6%95"
                      target="_blank"
                      rel="noopener noreferrer"
                   >
-                     깃허브
+                     유튜브
                      <GoArrowUpRight size={22} />
                   </a>
                </li>

@@ -77,87 +77,101 @@ export default function WorkDetail(props: Project) {
             {/* 상세 정보 */}
             <div>
                <div className="flex flex-col gap-16 pt-10 md:gap-40 md:pt-20 lg:gap-48 lg:pt-30">
-                  <ul className="text-14-regular sm:text-16-regular md:text-18-regular grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-5 md:gap-y-16 [&_li]:flex [&_li]:flex-col [&_li]:gap-2">
+                  <ul className="text-14-regular sm:text-16-regular md:text-18-regular lg:text-20-regular grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-5 md:gap-y-16 [&_h5]:pb-2 [&_li]:flex [&_li]:flex-col">
                      <li>
-                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium">
+                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium lg:text-22-medium">
                            기본 정보
                         </h5>
                         <hr className="border-line-black-10" />
-                        <div className="flex flex-col gap-1 [&_span]:flex [&_span]:items-center [&_span]:gap-1">
-                           <span>
-                              위치 <RxSlash className="size-4" /> {location}
-                           </span>
-                           <span>
-                              준공 연도 <RxSlash className="size-4" /> {year}년
-                           </span>
-                           <span>
-                              완공일 <RxSlash className="size-4" />{" "}
-                              {completionDate}월
-                           </span>
-                           <span>
-                              건축 면적 <RxSlash className="size-4" />{" "}
-                              {siteArea}㎡
-                           </span>
-                           <span>
-                              층수 <RxSlash className="size-4" /> {floors}
-                           </span>
+                        <div className="[&_div]:border-line-black-10 flex flex-col [&_div]:grid [&_div]:grid-cols-8 [&_div]:border-b [&_div]:py-2 md:[&_div]:grid-cols-10 md:[&_div]:py-3 [&_p]:col-start-4 [&_p]:col-end-9 md:[&_p]:col-end-11 lg:[&_p]:col-start-3 [&_span]:col-span-3 [&_span]:text-gray-100 lg:[&_span]:col-span-2">
+                           <div>
+                              <span>위치</span> <p>{location}</p>
+                           </div>
+                           <div>
+                              <span>준공 연도</span> <p>{year}년</p>
+                           </div>
+                           <div>
+                              <span>완공일</span>
+                              <p>
+                                 {completionDate.split("-")[0]}년{" "}
+                                 {completionDate.split("-")[1]}월
+                              </p>
+                           </div>
+                           <div>
+                              <span>건축 면적</span>
+                              <p>{siteArea}㎡</p>
+                           </div>
+                           <div>
+                              <span>층수</span> <p>{floors}</p>
+                           </div>
                         </div>
                      </li>
                      <li>
-                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium">
+                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium lg:text-22-medium">
                            건축 유형
                         </h5>
                         <hr className="border-line-black-10" />
-                        <div className="flex flex-col gap-1 [&_span]:flex [&_span]:items-center [&_span]:gap-1">
-                           <span>
-                              타입 <RxSlash className="size-4" /> {type}
-                           </span>
-                           <span>
-                              용도 <RxSlash className="size-4" /> {usage}
-                           </span>
+                        <div className="[&_div]:border-line-black-10 flex flex-col [&_div]:grid [&_div]:grid-cols-8 [&_div]:border-b [&_div]:py-2 md:[&_div]:grid-cols-10 md:[&_div]:py-3 [&_p]:col-start-4 [&_p]:col-end-9 md:[&_p]:col-start-3 md:[&_p]:col-end-11 lg:[&_p]:col-start-2 [&_span]:col-span-3 [&_span]:text-gray-100 md:[&_span]:col-span-2 lg:[&_span]:col-span-1">
+                           <div>
+                              <span>타입</span>
+                              <p>{type}</p>
+                           </div>
+                           <div>
+                              <span>용도</span>
+                              <p>{usage}</p>
+                           </div>
                         </div>
                      </li>
                      <li>
-                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium">
+                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium lg:text-22-medium">
                            주요 요소
                         </h5>
                         <hr className="border-line-black-10" />
-                        <div className="flex flex-col gap-1 [&_span]:flex [&_span]:flex-wrap [&_span]:items-center [&_span]:gap-1">
-                           <span>
-                              외장재 <RxSlash className="size-4" />
-                              {exterior.map((item, index) => (
-                                 <em key={index}>
-                                    {item}
-                                    {index !== exterior.length - 1 && ","}
-                                 </em>
-                              ))}
-                           </span>
-                           <span>
-                              내장제 <RxSlash className="size-4" />
-                              {interior.map((item, index) => (
-                                 <em key={index}>
-                                    {item}
-                                    {index !== interior.length - 1 && ","}
-                                 </em>
-                              ))}
-                           </span>
-                           <span>
-                              특징 <RxSlash className="size-4" />
-                              {features.map((item, index) => (
-                                 <em key={index}>
-                                    {item}
-                                    {index !== features.length - 1 && ","}
-                                 </em>
-                              ))}
-                           </span>
+                        <div className="[&_div]:border-line-black-10 flex flex-col [&_div]:grid [&_div]:grid-cols-8 [&_div]:border-b [&_div]:py-2 md:[&_div]:grid-cols-10 md:[&_div]:py-3 [&_p]:col-start-4 [&_p]:col-end-9 md:[&_p]:col-end-11 lg:[&_p]:col-start-3 [&_span]:col-span-3 [&_span]:text-gray-100 lg:[&_span]:col-span-2">
+                           <div>
+                              <span>외장재</span>
+                              <p className="">
+                                 {exterior.map((item, index) => (
+                                    <em key={index}>
+                                       {item}
+                                       {index !== exterior.length - 1 && ","}
+                                       &nbsp;
+                                    </em>
+                                 ))}
+                              </p>
+                           </div>
+                           <div>
+                              <span>내장제</span>
+                              <p>
+                                 {interior.map((item, index) => (
+                                    <em key={index}>
+                                       {item}
+                                       {index !== interior.length - 1 && ","}
+                                       &nbsp;
+                                    </em>
+                                 ))}
+                              </p>
+                           </div>
+                           <div>
+                              <span>특징</span>
+                              <p>
+                                 {features.map((item, index) => (
+                                    <em key={index}>
+                                       {item}
+                                       {index !== features.length - 1 && ","}
+                                       &nbsp;
+                                    </em>
+                                 ))}
+                              </p>
+                           </div>
                         </div>
                      </li>
                      <li>
-                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium">
+                        <h5 className="text-16-medium sm:text-18-medium md:text-20-medium lg:text-22-medium">
                            공간 이야기
                         </h5>
                         <hr className="border-line-black-10" />
-                        <div className="flex flex-col gap-1 [&_span]:flex [&_span]:items-center [&_span]:gap-1">
+                        <div className="flex flex-col gap-1 pt-2 md:pt-3 [&_span]:flex [&_span]:items-center [&_span]:gap-1">
                            <span className="break-keep">{description}</span>
                         </div>
                      </li>

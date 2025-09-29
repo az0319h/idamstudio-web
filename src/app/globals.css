@@ -15,7 +15,8 @@
    --color-bg-100: #f0ede9; /* Main Color */
    --color-bg-200: #efefef; /* 404 Color */
 
-   /* === Primary === */
+   /* === gray === */
+   --color-gray-100: #999999;
 
    /* === line === */
    --color-line-white-15: #ffffff26;
@@ -320,6 +321,13 @@
    font-weight: 400;
 }
 
+/* custom shadow */
+.shadow-soft {
+   box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+      rgba(0, 0, 0, 0.1) 0px 4px 6px,
+      rgba(0, 0, 0, 0.15) 0px 8px 30px;
+}
 /* hover event */
 .link-underline {
    position: relative;

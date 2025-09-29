@@ -88,11 +88,11 @@ export default function HeroSection() {
                   }}
                   className="text-16-medium md:text-18-medium w-fit text-nowrap md:leading-7"
                >
-                  • 지속 가능한 가치를 세우는 건축 철학,&nbsp;
+                  • 편안하고 안락함을 추구하는 건축,&nbsp;
                   <br className="md:hidden" />
-                  사람과 공간을 이어주는 섬세한 디자인,
+                  사람과 공간을 이어주는 건축,
                   <br />
-                  시대를 담고 미래를 준비하는 이담 건축.
+                  꼼꼼한 마무리와 완성도를 추구하는 이담 건축.
                </motion.p>
             </div>
 

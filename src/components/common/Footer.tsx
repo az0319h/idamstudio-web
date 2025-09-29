@@ -64,23 +64,23 @@ export default function Footer() {
                   </li>
                   <li className="border-line-black-10 hover:border-line-white-15 group border-b transition-all duration-300 hover:bg-black">
                      <a
-                        href="https://www.youtube.com/"
+                        href="https://open.kakao.com/o/sWS3f0Th"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group-hover:px-1 group-hover:text-white group-hover:transition-all group-hover:duration-300"
                      >
-                        유튜브
+                        카카오톡
                         <GoArrowUpRight size={22} className="md:size-6" />
                      </a>
                   </li>
                   <li className="border-line-black-10 hover:border-line-white-15 group border-b transition-all duration-300 hover:bg-black">
                      <a
-                        href="https://github.com/az0319h/idamstudio-web"
+                        href="https://www.youtube.com/@%EC%9D%B4%EB%8B%B4%EA%B1%B4%EC%B6%95"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group-hover:px-1 group-hover:text-white group-hover:transition-all group-hover:duration-300"
                      >
-                        깃허브
+                        유튜브
                         <GoArrowUpRight size={22} className="md:size-6" />
                      </a>
                   </li>

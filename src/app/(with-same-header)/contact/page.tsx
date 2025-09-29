@@ -31,20 +31,20 @@ export default function ContactPage() {
                         인스타그램
                      </a>
                      <a
-                        href="https://www.youtube.com/"
+                        href="https://open.kakao.com/o/sWS3f0Th"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline"
+                     >
+                        카카오톡
+                     </a>
+                     <a
+                        href="https://www.youtube.com/@%EC%9D%B4%EB%8B%B4%EA%B1%B4%EC%B6%95"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="link-underline"
                      >
                         유튜브
-                     </a>
-                     <a
-                        href="https://github.com/az0319h/idamstudio-web"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="link-underline"
-                     >
-                        깃허브
                      </a>
                   </div>
                </li>
