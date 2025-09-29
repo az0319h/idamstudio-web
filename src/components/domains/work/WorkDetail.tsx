@@ -2,7 +2,6 @@
 
 import { Project } from "@/lib/types";
 import Image from "next/image";
-import { RxSlash } from "react-icons/rx";
 import WorkDetailImagesGrid from "./WorkDetailImagesGrid";
 import { useNotification } from "@/context/NotificationContext";
 import { useIntersection } from "@/hooks";
@@ -141,7 +140,7 @@ export default function WorkDetail(props: Project) {
                               </p>
                            </div>
                            <div>
-                              <span>내장제</span>
+                              <span>내장재</span>
                               <p>
                                  {interior.map((item, index) => (
                                     <em key={index}>
