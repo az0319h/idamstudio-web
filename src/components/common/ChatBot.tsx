@@ -209,7 +209,7 @@ export default function ChatBot() {
                               className={`text-16-regular max-w-8/10 rounded-lg p-3 ${
                                  message.role === "user"
                                     ? "bg-black text-white"
-                                    : "bg-gray-100 text-gray-800"
+                                    : "bg-gray-200 text-gray-800"
                               }`}
                            >
                               {message.content}
@@ -220,7 +220,7 @@ export default function ChatBot() {
                      {/* 로딩 표시 */}
                      {isLoading && (
                         <div className="flex justify-start">
-                           <div className="rounded-lg bg-gray-100 p-3 text-sm text-gray-800">
+                           <div className="rounded-lg bg-gray-200 p-3 text-sm text-gray-800">
                               <div className="flex space-x-1">
                                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400"></div>
                                  <div
