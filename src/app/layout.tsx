@@ -22,6 +22,7 @@ export const metadata: Metadata = {
       "이담 건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
    other: {
       "naver-site-verification": "7698b25edb328321f8c8a3955b719c9b574a0ade",
+      "google-site-verification": "zXLXBGNh50otyn4x2oIe6SdLxSiaADaenI3_Lis2s-o",
    },
    icons: {
       icon: "/favicon.ico",
