@@ -17,7 +17,7 @@ const blackHanSans = Black_Han_Sans({
 });
 
 export const metadata: Metadata = {
-   title: "이 건축 - 공간을 짓고 가치를 남깁니다",
+   title: "이담건축 - 공간을 짓고 가치를 남깁니다",
    description:
       "이담건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
    other: {
