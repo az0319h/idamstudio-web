@@ -21,7 +21,7 @@ export default function ChatBot() {
       {
          role: "assistant",
          content:
-            "안녕하세요! 이담 건축 도우미입니다. 무엇을 도와드릴까요? 예: '새로운 상담을 받고 싶어요', '이담 건축은 어디에 위치하고 있나요?'",
+            "안녕하세요! 이담건축 도우미입니다. 무엇을 도와드릴까요? 예: '새로운 상담을 받고 싶어요', '이담건축은 어디에 위치하고 있나요?'",
       },
    ]);
    const inputRef = useRef<HTMLInputElement>(null);
@@ -186,7 +186,7 @@ export default function ChatBot() {
                            />
                         </div>
                         <span className="text-16-medium">
-                           이담 건축 AI 도우미
+                           이담건축 AI 도우미
                         </span>
                      </div>
                      <button onClick={() => setIsOpen(false)}>

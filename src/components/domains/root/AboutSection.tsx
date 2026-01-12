@@ -22,7 +22,7 @@ export default function AboutSection() {
                className="md:indent-8rem text-24-medium md:text-30-medium lg:indent-20rem pt-4 break-keep md:pt-0 lg:text-5xl lg:leading-14"
                style={revealStyle(isVisible, 0)}
             >
-               이담 건축의 진정한 힘은 건축의 본질을 이해하고, 그것을 사람들에게
+               이담건축의 진정한 힘은 건축의 본질을 이해하고, 그것을 사람들에게
                울림이 되는 공간으로 구현하는 데 있습니다. 철골 구조에서부터
                인테리어, 판넬 시공, 목조 주택까지 다양한 경험을 바탕으로, 우리는
                단순한 건축을 넘어 삶을 담아내는 공간을 만들어갑니다. 사람과
@@ -39,7 +39,7 @@ export default function AboutSection() {
                      className="text-14-medium lg:text-18-medium md:text-16-medium hidden break-keep sm:block"
                      style={revealStyle(isVisible, 1)}
                   >
-                     이담 건축은 건축을 단순한 구조물이 아닌, 사람들의 삶과
+                     이담건축은 건축을 단순한 구조물이 아닌, 사람들의 삶과
                      시간을 담는 그릇으로 바라봅니다. 우리는 눈에 보이는
                      형태보다 공간이 주는 감정과 경험을 더 중요하게 생각합니다.
                      그래서 작은 디테일 하나에도 진심을 담아, 머무는 이가
