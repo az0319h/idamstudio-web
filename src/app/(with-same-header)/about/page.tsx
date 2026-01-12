@@ -11,13 +11,13 @@ export default function AboutPage() {
          <PageLayout>
             <PageTitle title="스토리텔링" />
             <IntroductionSection />
-            <VisualCard visualImage="https://res.cloudinary.com/dmtmnadim/image/upload/v1758207085/visualImage0_kjfgxj.jpg" />
+            <VisualCard visualImage="https://res.cloudinary.com/dmtmnadim/image/upload/v1768182068/%E1%84%83%E1%85%B5%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB1_egrw3e.jpg" />
             <div className="pt-4">
                <ServiceSection />
             </div>
             <FAQSection />
          </PageLayout>
-         <VisualCard visualImage="https://res.cloudinary.com/dmtmnadim/image/upload/v1758216554/visualImage3_biof9e.jpg" />
+         <VisualCard visualImage="https://res.cloudinary.com/dmtmnadim/image/upload/v1768182397/about2_wljjme.jpg" />
       </>
    );
 }
