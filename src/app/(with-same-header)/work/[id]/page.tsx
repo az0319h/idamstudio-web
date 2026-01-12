@@ -21,7 +21,7 @@ export async function generateMetadata({
    const { id } = await params;
    const project = await fetchProject(id);
 
-   const title = `${project.title} - 이담 건축`;
+   const title = `${project.title} - 이담건축`;
    const description =
       project.description.length > 120
          ? project.description.slice(0, 117) + "..."
@@ -38,7 +38,7 @@ export async function generateMetadata({
          title,
          description,
          url,
-         siteName: "이담 건축",
+         siteName: "이담건축",
          images: [
             {
                url: imageUrl,

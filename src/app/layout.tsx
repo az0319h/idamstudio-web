@@ -17,9 +17,9 @@ const blackHanSans = Black_Han_Sans({
 });
 
 export const metadata: Metadata = {
-   title: "이담 건축 - 공간을 짓고 가치를 남깁니다",
+   title: "이담건축 - 공간을 짓고 가치를 남깁니다",
    description:
-      "이담 건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
+      "이담건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
    other: {
       "naver-site-verification": "7698b25edb328321f8c8a3955b719c9b574a0ade",
       "google-site-verification": "zXLXBGNh50otyn4x2oIe6SdLxSiaADaenI3_Lis2s-o",
@@ -28,18 +28,18 @@ export const metadata: Metadata = {
       icon: "/favicon.ico",
    },
    openGraph: {
-      title: "이담 건축 - 공간을 짓고 가치를 남깁니다",
+      title: "이담건축 - 공간을 짓고 가치를 남깁니다",
       description:
-         "이담 건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
+         "이담건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다. 단순한 건축이 아닌, 신뢰와 울림을 남기는 공간을 완성합니다.",
 
       url: "https://idamstudio.kr",
-      siteName: "이담 건축",
+      siteName: "이담건축",
       images: [
          {
             url: "/og-image.png",
             width: 1200,
             height: 630,
-            alt: "이담 건축 대표 이미지",
+            alt: "이담건축 대표 이미지",
          },
       ],
       locale: "ko_KR",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
    },
    twitter: {
       card: "summary_large_image",
-      title: "이담 건축 - 공간을 짓고 가치를 남깁니다",
+      title: "이담건축 - 공간을 짓고 가치를 남깁니다",
       description:
-         "이담 건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다.",
+         "이담건축은 건축을 통해 브랜드의 가치를 담아내는 것을 목표로 합니다.",
       images: ["/og-image.png"],
    },
    alternates: {

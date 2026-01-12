@@ -22,10 +22,10 @@ export default function FAQSection() {
       >
          <div className="pb-12 md:pb-32">
             <h2 className="text-14-regular md:text-16-regular">
-               이담 건축이 답합니다
+               이담건축이 답합니다
             </h2>
             <p className="md:indent-8rem text-24-medium md:text-30-medium lg:indent-20rem pt-4 lg:text-5xl lg:leading-14">
-               이담 건축은 단순한 시공업체가 아니라, 처음 상담부터 완공까지
+               이담건축은 단순한 시공업체가 아니라, 처음 상담부터 완공까지
                함께하는 파트너입니다. 고객이 가장 궁금해하는 부분을 명확하게
                안내드리고, 작은 공사부터 큰 프로젝트까지 투명하고 책임 있게
                진행합니다. 아래에서 자주 문의 주시는 질문들을 확인해 보실 수
