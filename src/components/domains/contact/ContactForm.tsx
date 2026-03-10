@@ -28,7 +28,7 @@ export default function ContactForm() {
    return (
       <div className="flex flex-col gap-12 bg-black p-4 text-white md:p-8 lg:w-5/10">
          <h2 className="text-22-medium break-keep sm:text-3xl sm:font-medium lg:text-5xl lg:leading-14">
-            이담 건축에 견적 문의를 남겨주세요!
+            이담건축에 견적 문의를 남겨주세요!
          </h2>
          <form
             onSubmit={handleSubmit(onSubmit)}

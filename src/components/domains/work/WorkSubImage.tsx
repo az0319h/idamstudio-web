@@ -18,7 +18,7 @@ export default function WorkSubImage({
    return (
       <div
          ref={ref}
-         style={revealStyle(isVisible, index, 300)}
+         style={revealStyle(isVisible, index, 150)}
          className={span ? "md:col-span-2" : ""}
       >
          <Image

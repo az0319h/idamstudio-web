@@ -92,7 +92,7 @@ export default function HeroSection() {
                   <br className="md:hidden" />
                   사람과 공간을 이어주는 건축,
                   <br />
-                  꼼꼼한 마무리와 완성도를 추구하는 이담 건축.
+                  꼼꼼한 마무리와 완성도를 추구하는 이담건축.
                </motion.p>
             </div>
 

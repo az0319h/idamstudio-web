@@ -21,7 +21,7 @@ export default function ChatBot() {
       {
          role: "assistant",
          content:
-            "안녕하세요! 이담 건축 도우미입니다. 무엇을 도와드릴까요? 예: '새로운 상담을 받고 싶어요', '이담 건축은 어디에 위치하고 있나요?'",
+            "안녕하세요! 이담건축 도우미입니다. 무엇을 도와드릴까요? 예: '새로운 상담을 받고 싶어요', '이담건축은 어디에 위치하고 있나요?'",
       },
    ]);
    const inputRef = useRef<HTMLInputElement>(null);
@@ -186,7 +186,7 @@ export default function ChatBot() {
                            />
                         </div>
                         <span className="text-16-medium">
-                           이담 건축 AI 도우미
+                           이담건축 AI 도우미
                         </span>
                      </div>
                      <button onClick={() => setIsOpen(false)}>
@@ -209,7 +209,7 @@ export default function ChatBot() {
                               className={`text-16-regular max-w-8/10 rounded-lg p-3 ${
                                  message.role === "user"
                                     ? "bg-black text-white"
-                                    : "bg-gray-100 text-gray-800"
+                                    : "bg-gray-200 text-gray-800"
                               }`}
                            >
                               {message.content}
@@ -220,7 +220,7 @@ export default function ChatBot() {
                      {/* 로딩 표시 */}
                      {isLoading && (
                         <div className="flex justify-start">
-                           <div className="rounded-lg bg-gray-100 p-3 text-sm text-gray-800">
+                           <div className="rounded-lg bg-gray-200 p-3 text-sm text-gray-800">
                               <div className="flex space-x-1">
                                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400"></div>
                                  <div

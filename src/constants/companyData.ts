@@ -1,6 +1,6 @@
 // src/constants/companyData.ts
 export const companyData = {
-  name: "이담 건축",
+  name: "이담건축",
   address: "경기도 동두천시 평화로2862번길 94 (동두천동)",
   jibun: "경기도 동두천시 동두천동 산12",
   phone: "010-7123-0261",

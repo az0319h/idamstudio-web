@@ -49,9 +49,9 @@ export default function IntroductionSection() {
             className="border-line-black-10 flex flex-col gap-20 border-t p-4 break-keep sm:gap-40"
          >
             <div>
-               <h2 className="text-14-regular md:text-16-regular">이담 건축</h2>
+               <h2 className="text-14-regular md:text-16-regular">이담건축</h2>
                <p className="md:indent-8rem text-24-medium md:text-30-medium lg:indent-20rem pt-4 md:pt-0 lg:text-5xl lg:leading-14">
-                  이담 건축의 진정한 힘은 건축의 본질을 이해하고 그것을 울림
+                  이담건축의 진정한 힘은 건축의 본질을 이해하고 그것을 울림
                   있는 공간으로 구현하는 데 있습니다. 철골 구조, 목조 주택, 판넬
                   시공, 인테리어 등 다양한 경험을 바탕으로, 우리는 단순한 건축을
                   넘어 삶과 시간을 담는 공간을 만듭니다. 눈에 보이는 형태보다

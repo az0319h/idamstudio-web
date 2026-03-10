@@ -92,7 +92,7 @@ export default function Footer() {
             >
                <div className="flex flex-col gap-3 md:mx-auto md:gap-[1vw]">
                   <span className="text-14-regular sm:text-16-regular md:text-[1.3vw]">
-                     이담 건축과 함께 새로운 공간을 이야기해요.
+                     이담건축과 함께 새로운 공간을 이야기해요.
                   </span>
                   <Link
                      href={"/contact"}
