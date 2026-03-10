@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Black_Han_Sans, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Footer from "@/components/common/Footer";
 import { NotificationProvider } from "@/context/NotificationContext";
@@ -62,6 +63,19 @@ export default function RootLayout({
          <body
             className={`${poppins.className} flex min-h-screen w-full flex-col`}
          >
+            {/* Google tag (gtag.js) */}
+            <Script
+               src="https://www.googletagmanager.com/gtag/js?id=AW-17862709530"
+               strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+               {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'AW-17862709530');
+               `}
+            </Script>
             <NotificationProvider>
                <main className="flex-1">{children}</main>
                <Footer />
@@ -71,3 +85,5 @@ export default function RootLayout({
       </html>
    );
 }
+
+
