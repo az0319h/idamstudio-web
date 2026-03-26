@@ -3,6 +3,7 @@ import ServiceSection from "@/components/common/ServiceSection";
 import VisualCard from "@/components/common/VisualCard";
 import AboutSection from "@/components/domains/root/AboutSection";
 import HeroSection from "@/components/domains/root/HeroSection";
+import LandingContactSection from "@/components/domains/root/LandingContactSection";
 import WorkSection from "@/components/domains/root/WorkSection";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
          <ServiceSection />
          <VisualCard visualImage="https://res.cloudinary.com/dmtmnadim/image/upload/v1758207419/visualImage1_iweiaj.jpg" />
          <MapSection />
+         <LandingContactSection />
       </div>
    );
 }

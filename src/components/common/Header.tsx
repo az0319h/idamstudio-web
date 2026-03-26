@@ -91,7 +91,7 @@ export default function Header() {
                      </Link>
                   </div>
                   <div className="hidden text-nowrap md:block">
-                     <Link href={"/contact"} className="p-4">
+                     <Link href="/contact" className="p-4">
                         견적문의
                      </Link>
                   </div>
