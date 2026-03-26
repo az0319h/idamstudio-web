@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
+import { usePathname } from "next/navigation";
 
 export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
+   const pathname = usePathname();
+   const contactHref = pathname === "/contact" ? "/contact" : "/#contact";
    return (
       <motion.div
          initial={{ x: "-100%" }}
@@ -55,7 +58,22 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
             <Link href="/location" onClick={onClose}>
                오시는 길
             </Link>
-            <Link href="/contact" onClick={onClose}>
+            <Link
+               href={contactHref}
+               onClick={(e) => {
+                  if (
+                     pathname === "/" &&
+                     contactHref === "/#contact"
+                  ) {
+                     e.preventDefault();
+                     document
+                        .getElementById("contact")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                     window.history.replaceState(null, "", "/#contact");
+                  }
+                  onClose();
+               }}
+            >
                견적 문의
             </Link>
          </motion.nav>
