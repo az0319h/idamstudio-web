@@ -1,13 +1,11 @@
 "use server";
 
+import { CONSULTATION_AREA_LABELS } from "@/constants/consultationAreas";
+import type { ContactFormData } from "@/lib/schemas";
 import { delay } from "@/utils";
 import nodemailer from "nodemailer";
 
-export async function createContact(formData: {
-   name: string;
-   phone: string;
-   message: string;
-}) {
+export async function createContact(formData: ContactFormData) {
    await delay(1000);
    try {
       const transporter = nodemailer.createTransport({
@@ -18,13 +16,16 @@ export async function createContact(formData: {
          },
       });
 
+      const areaLabel = CONSULTATION_AREA_LABELS[formData.consultationArea];
+
       await transporter.sendMail({
          from: `"${formData.name}" <${process.env.EMAIL_USER}>`,
          to: process.env.EMAIL_USER,
-         subject: `[문의] ${formData.name}님`,
+         subject: `[문의] ${areaLabel} · ${formData.name}님`,
          text: `
         성함: ${formData.name}
         연락처: ${formData.phone}
+        상담분야: ${areaLabel}
         내용: ${formData.message}
       `,
          html: `
@@ -40,6 +41,10 @@ export async function createContact(formData: {
       <td style="padding: 8px;">${formData.phone}</td>
     </tr>
     <tr>
+      <td style="padding: 8px; font-weight: bold;">상담분야</td>
+      <td style="padding: 8px;">${areaLabel}</td>
+    </tr>
+    <tr style="background: #f9f9f9;">
       <td style="padding: 8px; font-weight: bold;">내용</td>
       <td style="padding: 8px; white-space: pre-line;">${formData.message}</td>
     </tr>

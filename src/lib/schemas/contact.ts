@@ -1,3 +1,4 @@
+import { CONSULTATION_AREA_VALUES } from "@/constants/consultationAreas";
 import { z } from "zod";
 
 export const contactSchema = z.object({
@@ -9,9 +10,12 @@ export const contactSchema = z.object({
       .string()
       .min(8, "연락처를 입력해주세요.")
       .regex(/^[0-9-]+$/, "연락처는 숫자와 하이픈(-)만 입력할 수 있습니다."),
+   consultationArea: z.enum(CONSULTATION_AREA_VALUES, {
+      errorMap: () => ({ message: "상담분야를 선택해주세요." }),
+   }),
    message: z
       .string()
-      .min(10, "내용은 최소 10자 이상 입력해주세요.")
+      .min(2, "내용은 최소 2자 이상 입력해주세요.")
       .max(1000, "내용은 최대 1000자까지 입력할 수 있습니다."),
 });
 
