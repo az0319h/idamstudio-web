@@ -6,16 +6,12 @@ import { GoArrowUpRight } from "react-icons/go";
 import { Spectral } from "next/font/google";
 import { useIntersection } from "@/hooks";
 import { revealStyle } from "@/utils";
-import { usePathname } from "next/navigation";
-
 const spectral = Spectral({
    subsets: ["latin"],
    weight: ["300", "400"],
    style: ["normal", "italic"],
 });
 export default function Footer() {
-   const pathname = usePathname();
-   const contactHref = pathname === "/contact" ? "/contact" : "/#contact";
    const { ref: sectionRef, isVisible } = useIntersection();
    return (
       <footer ref={sectionRef}>
@@ -98,20 +94,8 @@ export default function Footer() {
                      이담건축과 함께 새로운 공간을 이야기해요.
                   </span>
                   <Link
-                     href={contactHref}
+                     href="/contact"
                      className="w-fit text-5xl font-semibold sm:text-[9.5vw] md:text-[8vw]"
-                     onClick={(e) => {
-                        if (
-                           pathname === "/" &&
-                           contactHref === "/#contact"
-                        ) {
-                           e.preventDefault();
-                           document
-                              .getElementById("contact")
-                              ?.scrollIntoView({ behavior: "smooth" });
-                           window.history.replaceState(null, "", "/#contact");
-                        }
-                     }}
                   >
                      건축 견적 문의
                   </Link>
