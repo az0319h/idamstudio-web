@@ -41,6 +41,17 @@ export default function ChatBot() {
       }
    }, [isVisible]);
 
+   /** md 미만에서는 챗봇을 쓰지 않으므로, 뷰포트가 줄어들면 열린 패널·스크롤 잠금을 정리 */
+   useEffect(() => {
+      const mq = window.matchMedia("(min-width: 768px)");
+      const closeIfNarrow = () => {
+         if (!mq.matches) setIsOpen(false);
+      };
+      mq.addEventListener("change", closeIfNarrow);
+      closeIfNarrow();
+      return () => mq.removeEventListener("change", closeIfNarrow);
+   }, []);
+
    useEffect(() => {
       if (typeof window === "undefined") return;
 
@@ -131,7 +142,7 @@ export default function ChatBot() {
    };
 
    return (
-      <>
+      <div className="hidden md:block">
          {/* 챗봇 버튼 */}
          <AnimatePresence>
             {isVisible && (
@@ -263,6 +274,6 @@ export default function ChatBot() {
                </motion.div>
             )}
          </AnimatePresence>
-      </>
+      </div>
    );
 }
