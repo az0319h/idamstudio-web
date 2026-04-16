@@ -113,7 +113,7 @@ export default function Footer() {
                   </p>
                   <p className="order-3 sm:order-2 md:order-3">
                      <span className="text-12-regular sm:text-14-regular">
-                        (주)
+                        {/* (주) */}
                      </span>
                      이담건축
                   </p>
