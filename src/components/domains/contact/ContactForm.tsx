@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useForm, type DefaultValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -9,6 +10,7 @@ import {
 import { ContactFormData, contactSchema } from "@/lib/schemas";
 import { createContact } from "@/api/create-contact.action";
 import { useNotification } from "@/context/NotificationContext";
+import { trackContactFormSubmit } from "@/lib/analytics/track-contact-submit";
 
 const defaultFormValues = {
    name: "",
@@ -31,13 +33,17 @@ export default function ContactForm() {
    });
 
    const { showNotification } = useNotification();
+   const pathname = usePathname();
 
    const consultationArea = watch("consultationArea");
 
    const onSubmit = async (data: ContactFormData) => {
       const result = await createContact(data);
       showNotification(result.message, result.success);
-      if (result.success) reset();
+      if (result.success) {
+         trackContactFormSubmit(pathname);
+         reset();
+      }
    };
 
    return (
