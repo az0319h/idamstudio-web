@@ -17,6 +17,9 @@ const blackHanSans = Black_Han_Sans({
    variable: "--font-black-han-sans",
 });
 
+const GA_MEASUREMENT_ID =
+   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-XMRWQSM775";
+
 export const metadata: Metadata = {
    title: "이담건축 - 공간을 짓고 가치를 남깁니다",
    description:
@@ -68,9 +71,9 @@ export default function RootLayout({
          <body
             className={`${poppins.className} flex min-h-screen w-full flex-col`}
          >
-            {/* Google tag (gtag.js) */}
+            {/* Google tag (gtag.js) — GA4 */}
             <Script
-               src="https://www.googletagmanager.com/gtag/js?id=AW-17862709530"
+               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
                strategy="afterInteractive"
             />
             <Script id="google-analytics" strategy="afterInteractive">
@@ -78,7 +81,7 @@ export default function RootLayout({
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', 'AW-17862709530');
+                  gtag('config', '${GA_MEASUREMENT_ID}');
                `}
             </Script>
             <NotificationProvider>
