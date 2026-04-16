@@ -107,7 +107,7 @@ export default function HeroSection() {
                   }}
                   className={`${spectral.className}`}
                >
-                  since 2021
+                  since 2005
                </motion.em>
             </div>
 
