@@ -16,7 +16,7 @@ export default function WorkHeaderSection() {
                건축 갤러리
             </h2>
             <span className="text-14-regular md:text-16-regular lg:text-18-regular sm:hidden md:block">
-               (2021 ~ 2025)
+               (2021 ~ {new Date().getFullYear()})
             </span>
             <Link
                href={"/work"}

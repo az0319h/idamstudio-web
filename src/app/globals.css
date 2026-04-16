@@ -394,6 +394,27 @@ html {
    animation: subtle-pulse 2s ease-in-out infinite;
 }
 
+/* 랜딩 고객 후기 마퀴 (느린 무한 스크롤) */
+@keyframes landing-testimonials-marquee {
+   from {
+      transform: translateX(0);
+   }
+   to {
+      transform: translateX(-50%);
+   }
+}
+.landing-testimonials-marquee {
+   display: flex;
+   width: max-content;
+   animation: landing-testimonials-marquee 100s linear infinite;
+   will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+   .landing-testimonials-marquee {
+      animation: none;
+   }
+}
+
 /* Default */
 html,
 body {
