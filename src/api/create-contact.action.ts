@@ -17,36 +17,52 @@ export async function createContact(formData: ContactFormData) {
       });
 
       const areaLabel = CONSULTATION_AREA_LABELS[formData.consultationArea];
+      const privacyLabel = formData.privacyConsent
+         ? "\uB3D9\uC758(\uD544\uC218)"
+         : "\uBBF8\uB3D9\uC758";
+      const marketingLabel = formData.marketingConsent
+         ? "\uB3D9\uC758"
+         : "\uBBF8\uB3D9\uC758";
 
       await transporter.sendMail({
          from: `"${formData.name}" <${process.env.EMAIL_USER}>`,
          to: process.env.EMAIL_USER,
-         subject: `[문의] ${areaLabel} · ${formData.name}님`,
+         subject: `[\uBB38\uC758] ${areaLabel} \u00B7 ${formData.name}\uB2D8`,
          text: `
-        성함: ${formData.name}
-        연락처: ${formData.phone}
-        상담분야: ${areaLabel}
-        내용: ${formData.message}
+        \uC131\uD568: ${formData.name}
+        \uC5F0\uB77D\uCC98: ${formData.phone}
+        \uC0C1\uB2F4\uBD84\uC57C: ${areaLabel}
+        \uB0B4\uC6A9: ${formData.message}
+        \uAC1C\uC778\uC815\uBCF4 \uC218\uC9D1\u00B7\uC774\uC6A9 \uB3D9\uC758: ${privacyLabel}
+        \uB9C8\uCF00\uD305 \uC815\uBCF4 \uC218\uC2E0 \uB3D9\uC758: ${marketingLabel}
       `,
          html: `
 <div style="font-family: Arial, sans-serif; font-size: 15px; color: #333;">
-  <h2 style="margin-bottom: 10px;">새 견적이 도착했습니다</h2>
+  <h2 style="margin-bottom: 10px;">\uC0C8 \uACAC\uC801\uC774 \uB3C4\uCC29\uD588\uC2B5\uB2C8\uB2E4</h2>
   <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
     <tr>
-      <td style="padding: 8px; font-weight: bold; width: 120px;">성함</td>
+      <td style="padding: 8px; font-weight: bold; width: 120px;">\uC131\uD568</td>
       <td style="padding: 8px;">${formData.name}</td>
     </tr>
     <tr style="background: #f9f9f9;">
-      <td style="padding: 8px; font-weight: bold;">연락처</td>
+      <td style="padding: 8px; font-weight: bold;">\uC5F0\uB77D\uCC98</td>
       <td style="padding: 8px;">${formData.phone}</td>
     </tr>
     <tr>
-      <td style="padding: 8px; font-weight: bold;">상담분야</td>
+      <td style="padding: 8px; font-weight: bold;">\uC0C1\uB2F4\uBD84\uC57C</td>
       <td style="padding: 8px;">${areaLabel}</td>
     </tr>
     <tr style="background: #f9f9f9;">
-      <td style="padding: 8px; font-weight: bold;">내용</td>
+      <td style="padding: 8px; font-weight: bold;">\uB0B4\uC6A9</td>
       <td style="padding: 8px; white-space: pre-line;">${formData.message}</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; font-weight: bold;">\uAC1C\uC778\uC815\uBCF4 \uC218\uC9D1\u00B7\uC774\uC6A9</td>
+      <td style="padding: 8px;">${privacyLabel}</td>
+    </tr>
+    <tr style="background: #f9f9f9;">
+      <td style="padding: 8px; font-weight: bold;">\uB9C8\uCF00\uD305 \uC815\uBCF4 \uC218\uC2E0</td>
+      <td style="padding: 8px;">${marketingLabel}</td>
     </tr>
   </table>
 </div>
@@ -56,14 +72,14 @@ export async function createContact(formData: ContactFormData) {
       return {
          success: true,
          message:
-            "견적 문의가 성공적으로 발송되었습니다. 곧 연락 드리겠습니다.",
+            "\uACAC\uC801 \uBB38\uC758\uAC00 \uC131\uACF5\uC801\uC73C\uB85C \uBC1C\uC1A1\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uACE7 \uC5F0\uB77D \uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4.",
       };
    } catch (error) {
       console.error("Email Send Failed!", error);
       return {
          success: false,
          message:
-            "견적 문의 전송이 정상적으로 처리되지 않았습니다. 연락처로 문자 남겨주시면 신속히 연락드리겠습니다.",
+            "\uACAC\uC801 \uBB38\uC758 \uC804\uC1A1\uC774 \uC815\uC0C1\uC801\uC73C\uB85C \uCC98\uB9AC\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4. \uC5F0\uB77D\uCC98\uB85C \uBB38\uC790 \uB0A8\uACA8\uC8FC\uC2DC\uBA74 \uC2E0\uC18D\uD788 \uC5F0\uB77D\uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4.",
       };
    }
 }

@@ -7,17 +7,26 @@ import {
    CONSULTATION_AREA_LABELS,
    CONSULTATION_AREA_VALUES,
 } from "@/constants/consultationAreas";
-import { ContactFormData, contactSchema } from "@/lib/schemas";
+import {
+   ContactFormData,
+   ContactFormValues,
+   contactSchema,
+} from "@/lib/schemas";
 import { createContact } from "@/api/create-contact.action";
 import { useNotification } from "@/context/NotificationContext";
 import { trackContactFormSubmit } from "@/lib/analytics/track-contact-submit";
+import ContactConsentBlocks from "@/components/domains/contact/ContactConsentBlocks";
 
 const defaultFormValues = {
    name: "",
-   phone: "",
+   phonePrefix: "010",
+   phoneMiddle: "",
+   phoneLast: "",
    consultationArea: "",
    message: "",
-} as unknown as DefaultValues<ContactFormData>;
+   privacyConsent: false,
+   marketingConsent: false,
+} as unknown as DefaultValues<ContactFormValues>;
 
 export default function ContactForm() {
    const {
@@ -26,7 +35,7 @@ export default function ContactForm() {
       watch,
       formState: { errors, isSubmitting },
       reset,
-   } = useForm<ContactFormData>({
+   } = useForm<ContactFormValues, unknown, ContactFormData>({
       resolver: zodResolver(contactSchema),
       mode: "onChange",
       defaultValues: defaultFormValues,
@@ -42,7 +51,7 @@ export default function ContactForm() {
       showNotification(result.message, result.success);
       if (result.success) {
          trackContactFormSubmit(pathname);
-         reset();
+         reset(defaultFormValues);
       }
    };
 
@@ -53,7 +62,7 @@ export default function ContactForm() {
          </h2>
          <form
             onSubmit={handleSubmit(onSubmit)}
-            className="[&_p]:text-14-regular md:[&_p]:text-16-regular lg:[&_p]:text-18-regular md:[&_input]:text-18-regular md:[&_select]:text-18-regular lg:[&_input]:text-22-regular lg:[&_select]:text-22-regular flex flex-col gap-7 [&_input]:w-full [&_select]:w-full [&_p]:py-1 md:[&_p]:py-1.5"
+            className="[&_p]:text-14-regular md:[&_p]:text-16-regular lg:[&_p]:text-18-regular md:[&_input]:text-18-regular md:[&_select]:text-18-regular lg:[&_input]:text-22-regular lg:[&_select]:text-22-regular flex flex-col gap-7 [&_input:not([type='checkbox'])]:w-full [&_select]:w-full [&_p]:py-1 md:[&_p]:py-1.5"
          >
             <div>
                <input
@@ -67,14 +76,60 @@ export default function ContactForm() {
             </div>
 
             <div>
-               <input
-                  type="text"
-                  {...register("phone")}
-                  placeholder="연락처"
-                  autoComplete="off"
-                  className="border-line-white-15 border-b py-2 focus:border-white"
-               />
-               {errors.phone && <p>{errors.phone.message}</p>}
+               <span className="sr-only">연락처</span>
+               <div className="flex w-full items-center gap-2 md:gap-3">
+                  <input
+                     type="text"
+                     inputMode="numeric"
+                     autoComplete="tel-national"
+                     aria-label="앞자리 (지역·통신사 번호)"
+                     maxLength={4}
+                     {...register("phonePrefix", {
+                        setValueAs: (v) =>
+                           String(v).replace(/\D/g, "").slice(0, 4),
+                     })}
+                     className="border-line-white-15 min-w-0 !w-0 flex-1 basis-0 border-b py-2 focus:border-white"
+                  />
+                  <span className="shrink-0 text-white/50" aria-hidden>
+                     -
+                  </span>
+                  <input
+                     type="text"
+                     inputMode="numeric"
+                     autoComplete="off"
+                     aria-label="가운데 번호"
+                     maxLength={4}
+                     {...register("phoneMiddle", {
+                        setValueAs: (v) =>
+                           String(v).replace(/\D/g, "").slice(0, 4),
+                     })}
+                     className="border-line-white-15 min-w-0 !w-0 flex-[1.15] basis-0 border-b py-2 focus:border-white"
+                  />
+                  <span className="shrink-0 text-white/50" aria-hidden>
+                     -
+                  </span>
+                  <input
+                     type="text"
+                     inputMode="numeric"
+                     autoComplete="off"
+                     aria-label="마지막 번호"
+                     maxLength={4}
+                     {...register("phoneLast", {
+                        setValueAs: (v) =>
+                           String(v).replace(/\D/g, "").slice(0, 4),
+                     })}
+                     className="border-line-white-15 min-w-0 !w-0 flex-1 basis-0 border-b py-2 focus:border-white"
+                  />
+               </div>
+               {(errors.phonePrefix ||
+                  errors.phoneMiddle ||
+                  errors.phoneLast) && (
+                  <p>
+                     {errors.phonePrefix?.message ??
+                        errors.phoneMiddle?.message ??
+                        errors.phoneLast?.message}
+                  </p>
+               )}
             </div>
 
             <div>
@@ -131,6 +186,8 @@ export default function ContactForm() {
                />
                {errors.message && <p>{errors.message.message}</p>}
             </div>
+
+            <ContactConsentBlocks register={register} errors={errors} />
 
             <div>
                <button

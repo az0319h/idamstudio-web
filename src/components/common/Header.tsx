@@ -39,7 +39,8 @@ export default function Header() {
       pathname === "/contact" ||
       pathname.startsWith("/work") ||
       pathname === "/about" ||
-      pathname === "/location";
+      pathname === "/location" ||
+      pathname === "/privacy";
 
    return (
       <>
