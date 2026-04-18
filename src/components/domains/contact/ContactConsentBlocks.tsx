@@ -1,24 +1,68 @@
 "use client";
 
 import Link from "next/link";
-import type { UseFormRegister, FieldErrors } from "react-hook-form";
+import type { UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form";
 import type { ContactFormValues } from "@/lib/schemas";
 
 type Props = {
    register: UseFormRegister<ContactFormValues>;
    errors: FieldErrors<ContactFormValues>;
+   watch: UseFormWatch<ContactFormValues>;
 };
 
-export default function ContactConsentBlocks({ register, errors }: Props) {
+function Checkbox({
+   register,
+   name,
+   checked,
+}: {
+   register: UseFormRegister<ContactFormValues>;
+   name: "privacyConsent" | "marketingConsent";
+   checked: boolean;
+}) {
+   return (
+      <div className="relative mt-0.5 h-5 w-5 shrink-0">
+         <input
+            type="checkbox"
+            {...register(name)}
+            className="absolute h-5 w-5 cursor-pointer opacity-0"
+         />
+         <div
+            className={`pointer-events-none flex h-5 w-5 items-center justify-center rounded-sm border transition-colors ${
+               checked
+                  ? "border-white bg-white"
+                  : "border-line-white-15 bg-transparent"
+            }`}
+         >
+            {checked && (
+               <svg
+                  className="h-3 w-3 text-black"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+               >
+                  <path
+                     d="M2 6L5 9L10 3"
+                     stroke="currentColor"
+                     strokeWidth="2"
+                     strokeLinecap="round"
+                     strokeLinejoin="round"
+                  />
+               </svg>
+            )}
+         </div>
+      </div>
+   );
+}
+
+export default function ContactConsentBlocks({ register, errors, watch }: Props) {
+   const privacyChecked = watch("privacyConsent");
+   const marketingChecked = watch("marketingConsent");
+
    return (
       <>
          <div className="border-line-white-15 space-y-3 border p-4 md:p-5">
             <label className="flex cursor-pointer items-start gap-3">
-               <input
-                  type="checkbox"
-                  {...register("privacyConsent")}
-                  className="border-line-white-15 mt-1 h-4 w-4 shrink-0 rounded-sm border bg-black accent-white"
-               />
+               <Checkbox register={register} name="privacyConsent" checked={privacyChecked} />
                <span className="text-14-regular md:text-16-regular lg:text-18-regular leading-snug text-white">
                   [필수] 개인정보 수집·이용 동의
                </span>
@@ -54,11 +98,7 @@ export default function ContactConsentBlocks({ register, errors }: Props) {
 
          <div className="border-line-white-15 space-y-3 border p-4 md:p-5">
             <label className="flex cursor-pointer items-start gap-3">
-               <input
-                  type="checkbox"
-                  {...register("marketingConsent")}
-                  className="border-line-white-15 mt-1 h-4 w-4 shrink-0 rounded-sm border bg-black accent-white"
-               />
+               <Checkbox register={register} name="marketingConsent" checked={marketingChecked} />
                <span className="text-14-regular md:text-16-regular lg:text-18-regular leading-snug text-white">
                   [선택] 마케팅 정보 수신 동의
                </span>
