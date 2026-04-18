@@ -187,7 +187,7 @@ export default function ContactForm() {
                {errors.message && <p>{errors.message.message}</p>}
             </div>
 
-            <ContactConsentBlocks register={register} errors={errors} />
+            <ContactConsentBlocks register={register} errors={errors} watch={watch} />
 
             <div>
                <button
