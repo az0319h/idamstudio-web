@@ -2,11 +2,18 @@
 import PageTitle from "@/components/common/PageTitle";
 import ContactForm from "@/components/domains/contact/ContactForm";
 import PageLayout from "@/components/layout/PageLayout";
+import { companyData } from "@/constants/companyData";
 import { useIntersection } from "@/hooks";
+import {
+   trackPhoneClick,
+   trackEmailClick,
+   trackKakaoChannelClick,
+} from "@/lib/analytics/track-click-events";
 import { revealStyle } from "@/utils";
 
 export default function ContactPage() {
    const { ref: sectionRef, isVisible } = useIntersection();
+   const telHref = `tel:${companyData.phone.replace(/-/g, "")}`;
 
    return (
       <PageLayout>
@@ -34,9 +41,10 @@ export default function ContactPage() {
                         href="https://open.kakao.com/o/sWS3f0Th"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={trackKakaoChannelClick}
                         className="link-underline"
                      >
-                        카카오톡
+                        카카오톡 채널
                      </a>
                      <a
                         href="https://www.youtube.com/@%EC%9D%B4%EB%8B%B4%EA%B1%B4%EC%B6%95"
@@ -64,10 +72,22 @@ export default function ContactPage() {
                   </div>
                   <div>
                      <p>
-                        <em>010 7123 0261</em>
+                        <a
+                           href={telHref}
+                           onClick={trackPhoneClick}
+                           className="link-underline font-[inherit] not-italic"
+                        >
+                           {companyData.phone}
+                        </a>
                      </p>
                      <p className="break-words">
-                        idamstudio.doodream@gmail.com
+                        <a
+                           href={`mailto:${companyData.email}`}
+                           onClick={trackEmailClick}
+                           className="link-underline"
+                        >
+                           {companyData.email}
+                        </a>
                      </p>
                   </div>
                </li>

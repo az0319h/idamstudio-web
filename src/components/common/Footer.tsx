@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GoArrowUpRight } from "react-icons/go";
 import { Spectral } from "next/font/google";
 import { useIntersection } from "@/hooks";
+import { trackKakaoChannelClick } from "@/lib/analytics/track-click-events";
 import { revealStyle } from "@/utils";
 const spectral = Spectral({
    subsets: ["latin"],
@@ -66,9 +67,10 @@ export default function Footer() {
                         href="https://open.kakao.com/o/sWS3f0Th"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={trackKakaoChannelClick}
                         className="group-hover:px-1 group-hover:text-white group-hover:transition-all group-hover:duration-300"
                      >
-                        카카오톡
+                        카카오톡 채널
                         <GoArrowUpRight size={22} className="md:size-6" />
                      </a>
                   </li>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
+import { trackKakaoChannelClick } from "@/lib/analytics/track-click-events";
 export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
    return (
       <motion.div
@@ -88,8 +89,9 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
                      href="https://open.kakao.com/o/sWS3f0Th"
                      target="_blank"
                      rel="noopener noreferrer"
+                     onClick={trackKakaoChannelClick}
                   >
-                     카카오톡
+                     카카오톡 채널
                      <GoArrowUpRight size={22} />
                   </a>
                </li>

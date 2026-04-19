@@ -4,6 +4,7 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 import { companyData } from "@/constants/companyData";
 import { landingConsultationSteps } from "@/constants/landingConsultation";
 import { useIntersection } from "@/hooks";
+import { trackPhoneClick } from "@/lib/analytics/track-click-events";
 import { revealStyle } from "@/utils";
 
 export default function LandingConsultationFlowSection() {
@@ -22,6 +23,7 @@ export default function LandingConsultationFlowSection() {
                </h2>
                <a
                   href={telHref}
+                  onClick={trackPhoneClick}
                   className="text-14-medium md:text-16-medium w-fit border-b border-black pb-0.5 transition-opacity hover:opacity-60"
                >
                   {companyData.phone}
