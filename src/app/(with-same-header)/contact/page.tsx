@@ -21,9 +21,9 @@ export default function ContactPage() {
          <div
             ref={sectionRef}
             style={revealStyle(isVisible, 1)}
-            className="border-line-black-10 flex flex-col gap-12 border-t p-4 lg:flex-row lg:justify-between"
+            className="border-line-black-10 flex min-w-0 flex-col gap-12 border-t p-4 lg:flex-row lg:justify-between"
          >
-            <ul className="text-14-regular md:text-16-regular lg:text-18-regular grid-col1s-1 grid gap-y-8 break-keep lg:h-fit lg:w-1/3 lg:gap-y-16 [&_li]:grid [&_li]:grid-cols-2 [&_li]:items-start lg:[&_li]:h-fit">
+            <ul className="text-14-regular md:text-16-regular lg:text-18-regular grid-col1s-1 grid w-full min-w-0 gap-y-8 break-keep lg:h-fit lg:w-1/3 lg:gap-y-16 [&_li]:grid [&_li]:min-w-0 [&_li]:grid-cols-2 [&_li]:items-start [&_li>div]:min-w-0 lg:[&_li]:h-fit">
                <li>
                   <div>
                      <h3>소셜 링크</h3>
@@ -80,11 +80,11 @@ export default function ContactPage() {
                            {companyData.phone}
                         </a>
                      </p>
-                     <p className="break-words">
+                     <p className="min-w-0 break-words">
                         <a
                            href={`mailto:${companyData.email}`}
                            onClick={trackEmailClick}
-                           className="link-underline"
+                           className="link-underline max-w-full break-all"
                         >
                            {companyData.email}
                         </a>
