@@ -38,7 +38,7 @@ export default function ContactPage() {
                         인스타그램
                      </a>
                      <a
-                        href="https://open.kakao.com/o/sWS3f0Th"
+                        href="https://pf.kakao.com/_xfNQCX"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={trackKakaoChannelClick}
