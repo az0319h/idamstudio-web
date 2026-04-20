@@ -86,7 +86,7 @@ export default function HamburgerMenu({ onClose }: { onClose: () => void }) {
                </li>
                <li className="border-line-white-15 border-b">
                   <a
-                     href="https://open.kakao.com/o/sWS3f0Th"
+                     href="https://pf.kakao.com/_xfNQCX"
                      target="_blank"
                      rel="noopener noreferrer"
                      onClick={trackKakaoChannelClick}

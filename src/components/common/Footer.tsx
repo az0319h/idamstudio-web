@@ -64,7 +64,7 @@ export default function Footer() {
                   </li>
                   <li className="border-line-black-10 hover:border-line-white-15 group border-b transition-all duration-300 hover:bg-black">
                      <a
-                        href="https://open.kakao.com/o/sWS3f0Th"
+                        href="https://pf.kakao.com/_xfNQCX"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={trackKakaoChannelClick}
